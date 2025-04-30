@@ -1,33 +1,16 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import Button from "./Button";
 import { Resume } from "../utils";
 
 
 const Navbar = () => {
 
-
-  const [isMobile, setIsMobile] = useState(false);
-
-
-  useEffect(() => {
-     const handleResize = () => {
-       setIsMobile(window.innerWidth <= 768);
-     };
-
-     handleResize();
-
-     window.addEventListener("resize", handleResize);
-     return () => window.removeEventListener("resize", handleResize);
-
-  }, []);
-
-
   // Navigation links data
-   const navLinks = useMemo(() => [
+  const navLinks = [
     { link: "About", id: "#about" },
     { link: "Work", id: "#project" },
     { link: "Contact", id: "#contact" },
-  ],[]);
+  ];
 
   // Smooth scroll to sections of the page
   const smoothScroll = (e, id) => {
@@ -57,13 +40,13 @@ const Navbar = () => {
           <div className="nav-cont flex items-center justify-center w-8 h-8 text-black bg-white rounded-full">
             <a href="/">JG</a>
           </div>
-        </div>t
+        </div>
 
         {/* Navigation Links for Desktop */}
         <div className="nav-link hidden md:block">
           <div className="nav-links flex gap-16">
             {navLinks.map((item, i) => (
-              <React.Fragment key={i} className="flex items-center gap-1">
+              <div key={i} className="flex items-center gap-1">
                 <a
                   className="link text-[1.5vw] uppercase"
                   href={item.id}
@@ -71,7 +54,7 @@ const Navbar = () => {
                 >
                   {item.link}
                 </a>
-              </React.Fragment>
+              </div>
             ))}
           </div>
         </div>

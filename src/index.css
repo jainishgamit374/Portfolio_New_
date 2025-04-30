@@ -19,6 +19,10 @@ body {
   font-family: 'Oxta';
   src: url("./assets/Oxta.woff");
 }
+@font-face {
+  font-family: 'BSV';
+  src: url("./assets/fonnts.com-Bandeins_Strange_Variable.ttf");
+}
 
 :root {
   --cursor-size: 15px;
@@ -112,6 +116,7 @@ body {
   pointer-events: none;
   z-index: 99;
 }
+
 
 /* Services start */
 

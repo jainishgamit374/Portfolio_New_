@@ -41,7 +41,7 @@ const Frequentlyque = () => {
 
   return (
     <>
-      <div className="relative w-full text-center py-14 overflow-hidden">
+      <div className="relative w-full h-[125vh] md:h-auto text-center py-14 overflow-hidden">
         {/* Heading */}
         <div className="heading max-w-screen-xl mx-auto flex items-center justify-center pb-12 px-4">
           <h1 className="text-4xl capitalize font-semibold tracking-tight">
@@ -50,13 +50,13 @@ const Frequentlyque = () => {
         </div>
 
         {/* FAQ Wrapper */}
-        <div className="FAQ-wrapper max-w-screen-xl mx-auto py-5 px-4 mt-10 flex items-center flex-col justify-between">
-          <div className="FAQ-container w-full h-full flex items-center flex-col gap-8">
+        <div className="FAQ-wrapper max-w-screen-xl  mx-auto py-5 px-4  flex items-center flex-col justify-between">
+          <div className="FAQ-container w-full h-full flex items-center justify-between flex-row flex-wrap gap-8">
             {/* FAQ Items */}
             {faqData.map((item) => (
               <motion.div
                 key={item.id}
-                className="faq-content relative w-[100%] md:w-[80%] lg:w-[60%]"
+                className="faq-content relative w-[100%] md:w-[80%] lg:w-[48%]"
                 initial={{ height: "12vh" }}
                 animate={{ height: openId === item.id ? "28vh" : "12vh" }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
