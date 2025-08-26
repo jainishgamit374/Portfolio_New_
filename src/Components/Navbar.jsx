@@ -57,7 +57,7 @@ const Navbar = () => {
           <div className="nav-cont flex items-center justify-center w-8 h-8 text-black bg-white rounded-full">
             <a href="/">JG</a>
           </div>
-        </div>t
+        </div>
 
         {/* Navigation Links for Desktop */}
         <div className="nav-link hidden md:block">

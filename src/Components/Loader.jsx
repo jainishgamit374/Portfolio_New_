@@ -1,9 +1,9 @@
 import { easeInOut, motion, MotionConfig } from 'framer-motion'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import gsap, { Power2 } from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const Loader = () => {
+const Loader = ({ onLoadingComplete }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [btnClick, setBtnClick] = useState(false)
     const [isLoading, setIsLoading] = useState(true);
@@ -12,6 +12,10 @@ const Loader = () => {
     const btnClicked = () => {
         setBtnClick(true);
         setIsLoading(false);
+        // Call parent callback to enable scrolling
+        if (onLoadingComplete) {
+            onLoadingComplete();
+        }
     }
 
     const t1 = gsap.timeline();
@@ -46,6 +50,7 @@ const Loader = () => {
                         if (percent === 100) {
                             clearInterval(interval);
                             setIsLoading(false);
+                            // Don't enable scrolling automatically, only when button is clicked
                         }
                     }, 100);
                 },
@@ -71,6 +76,25 @@ const Loader = () => {
         );
 
     }, []);
+
+    // Disable body scroll until button is clicked
+    useEffect(() => {
+        if (!btnClick) {
+            // Disable scrolling until button is clicked
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            // Enable scrolling only when button is clicked
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+
+        // Cleanup function to restore scrolling when component unmounts
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, [btnClick]);
 
     return (
         <>

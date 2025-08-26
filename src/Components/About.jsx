@@ -112,13 +112,13 @@ const About = () => {
         </h1>
         <div className="w-1/3 h-1 bg-white"></div>
       </div> 
-      <div className="inf-cont w-full h-[220vh]  md:h-[100vh] lg:h-[150vh] bg-white flex items-center justify-center py-10">
+      <div className="inf-cont w-full min-h-screen bg-white flex items-center justify-center py-10">
         <div className="heading w-full h-full mx-auto flex items-center flex-col gap-2 md:gap-4 lg:gap-[5.8vw] py-10 px-1 md:py-14 md:px-12 lg:p-14 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-full h-auto lg:h-[78vh]">
+          <div className="flex flex-col lg:flex-row gap-4 w-full h-auto">
             {/* Left Side: Two stacked containers */}
 
             {/* Right Side: Profile Section */}
-            <div className="col-span-1 lg:col-span-2 bg-[#232323] rounded-3xl p-10 flex flex-col justify-evenly relative overflow-hidden">
+            <div className="w-full lg:w-1/2 bg-[#232323] rounded-3xl p-10 flex flex-col justify-evenly relative overflow-hidden">
               <svg
                 className="absolute scale-[250%] lg:top-14 lg:scale-150 lg:w-[50vw] lg:h-[50vh] lg:-rotate-6  "
                 xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +157,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="col-span-1 lg:col-span-2 flex text-start flex-col gap-4">
+            <div className="w-full lg:w-1/2 flex text-start flex-col gap-4">
               {/* First Container */}
               <div className="rounded-3xl p-10 bg-[#232323] flex flex-col items-start gap-3 relative overflow-hidden">
                 <svg
@@ -247,8 +247,8 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-4 w-full h-auto md:h-[50vh] lg:h-[40vh]">
-            <div className="col-span-1 md:col-span-2 lg:col-span-2 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#232323] faq-bga p-10 md:p-14 lg:p-10">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-4 lg:gap-4 w-full h-auto">
+            <div className="w-full md:w-1/2 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#232323] faq-bga p-10 md:p-14 lg:p-10">
               <div className="project-container w-full h-full flex flex-col items-center justify-center">
                 <span className="text-effect">
                   <p className="text-sm md:text-2xl lg:text-2l text-center">
@@ -259,7 +259,7 @@ const About = () => {
                 </span>
               </div>
             </div>
-            <div className="col-span-1 md:col-span-2 lg:col-span-2 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#232323] faq-bga p-10 md:p-14 lg:p-10">
+            <div className="w-full md:w-1/2 rounded-xl md:rounded-2xl lg:rounded-3xl bg-[#232323] faq-bga p-10 md:p-14 lg:p-10">
               <div className="project-container w-full h-full flex gap-5 items-center justify-center">
                 <h1 className="text-7xl md:text-5xl lg:text-[7vw]">20+</h1>
                 <h2 className="text-5xl md:text-lg lg:text-6xl leading-none text-center">

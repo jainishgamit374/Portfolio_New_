@@ -1,47 +1,60 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { MdArrowOutward } from "react-icons/md";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Footer = () => {
+    const exitOverlayRef = useRef(null);
+    
     const footerLinkes = [
-        { link: "Github", url:"https://github.com/"},
-        { link: "LinkedIn", },
-        { link: "Twitter", },
-        { link: "Instagram", },
+        { link: "Github", url: "https://github.com/jainishgamit374" },
+        { link: "LinkedIn", url: "https://www.linkedin.com/in/jainish-gamit-2b024b296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
+        { link: "Twitter", url: "https://x.com/gamit_jain43598?t=FocGwGuCh2x6hxE_9j1tkA&s=09" },
+        { link: "Instagram", url: "https://www.instagram.com/jainish23_?igsh=YnAwN2VhdTE0Yml3" },
     ];
-    useEffect(() => {
-        const smoothScroll = (e) => {
-            e.preventDefault();
-            const targetId = e.currentTarget.getAttribute("href");
-            if (targetId !== "#") {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: "smooth",
-                    });
-                }
-            } else {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
+
+    const handleLinkClick = (e, url) => {
+        e.preventDefault();
+        
+        // Create wave exit animation
+        const tl = gsap.timeline();
+        
+        tl.set(exitOverlayRef.current, {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
+            display: "block"
+        })
+        .to(exitOverlayRef.current, {
+            clipPath: "polygon(0 0%, 100% 0%, 100% 0%, 0 0%)",
+            duration: 0.8,
+            ease: "power2.inOut"
+        })
+        .to(exitOverlayRef.current, {
+            clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)",
+            duration: 0.6,
+            ease: "power2.inOut",
+            onComplete: () => {
+                // Open link after animation completes
+                window.open(url, '_blank', 'noopener,noreferrer');
+                // Reset overlay
+                gsap.set(exitOverlayRef.current, {
+                    clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
+                    display: "none"
                 });
             }
-        };
-
-        const links = document.querySelectorAll(".footer-links a");
-        links.forEach((link) => {
-            link.addEventListener("click", smoothScroll);
         });
-
-        return () => {
-            links.forEach((link) => {
-                link.removeEventListener("click", smoothScroll);
-            });
-        };
-    }, []);
+    };
 
     return (
         <>
+            {/* Exit Animation Overlay */}
+            <div 
+                ref={exitOverlayRef}
+                className="fixed top-0 left-0 w-full h-screen bg-black z-[9999] hidden"
+                style={{
+                    clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)"
+                }}
+            ></div>
+            
             <div className="relative w-full h-screen md:h-[70vh] lg:h-auto pt-10 overflow-hidden bg-zinc-50" id="contact">
                 <div className="heading max-w-screen-xl h-auto mx-auto flex items-start justify-between flex-col  gap-5 px-1 md:px-4 lg:px-4 lg:gap-8  text-black">
 
@@ -70,8 +83,17 @@ const Footer = () => {
                             <div className="footer-links w-full flex items-start flex-col justify-start gap-1 pr-12">
                                 {footerLinkes.map((item, i) => (
                                     <div key={i} className="w-[100%] flex items-center gap-4 md:w-[40%] lg:w-[100%] h-[4vh]  border-b-[.2vw] border-zinc-700">
-                                        <a className='cursor-pointer text-xl md:text-xl lg:text-xl ' href={item.url}>{item.link}</a>
-                                        <span className="cursor-pointer text-xl md:text-xl lg:text-xl">
+                                        <a 
+                                            className='cursor-pointer text-xl md:text-xl lg:text-xl hover:text-zinc-400 transition-colors' 
+                                            href={item.url}
+                                            onClick={(e) => handleLinkClick(e, item.url)}
+                                        >
+                                            {item.link}
+                                        </a>
+                                        <span 
+                                            className="cursor-pointer text-xl md:text-xl lg:text-xl"
+                                            onClick={(e) => handleLinkClick(e, item.url)}
+                                        >
                                             <MdArrowOutward />
                                         </span>
                                     </div>
@@ -81,7 +103,7 @@ const Footer = () => {
 
                         <div className="Credit py-6 lg:py-0 lg:pl-10 lg:w-1/2 flex items-start justify-start lg:justify-end">
                             <h1 className="text-2xl md:text-3xl text-zinc-600 lg:text-end">
-                                Designed and  Develop <br />
+                                Designed and Developed <br />
                                 by JAINISH
                             </h1>
                         </div>
