@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { image1, image2, image3 } from '../utils'
+import { image1, image2, image3 , image4 } from '../utils'
 import { easeInOut, motion } from "framer-motion";
 
 
@@ -11,7 +11,7 @@ const Projects = () => {
             id: 1,
             image: image1,
             title: 'BrandbeetClone',
-            category: 'web',
+            category: 'Project',
             url: "https://jainish1025.github.io/-BrandbeetcLONE/"
         },
 
@@ -19,7 +19,7 @@ const Projects = () => {
             id: 2,
             image: image2,
             title: 'CubartoClone',
-            category: 'app',
+            category: 'Project',
             url: "https://jainish1025.github.io/CubartoClone/"
         },
 
@@ -27,8 +27,15 @@ const Projects = () => {
             id: 3,
             image: image3,
             title: 'AwwadedWebsite',
-            category: 'design',
+            category: 'Project',
             url: "https://jainish1025.github.io/AwwadedWebsite/"
+        },
+        {
+            id: 4,
+            image: image4,
+            title: 'Netflix-(Clone)',
+            category: 'Project',
+            url: "https://netflix-aljr92zy3-jainish23-projects.vercel.app/"
         },
     ];
 

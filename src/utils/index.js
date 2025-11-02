@@ -47,10 +47,12 @@ export const tn4 = testi4;
 import img1 from "../assets/Projectimg/1.png";
 import img2 from "../assets/Projectimg/2.png";
 import img3 from "../assets/Projectimg/3.png";
+import img4 from "../assets/Projectimg/4.png";
 
 export const image1 = img1;
 export const image2 = img2;
 export const image3 = img3;
+export const image4 = img4;
 
 
 // Resume 
