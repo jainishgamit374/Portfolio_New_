@@ -84,14 +84,14 @@ const Footer = () => {
                                 {footerLinkes.map((item, i) => (
                                     <div key={i} className="w-[100%] flex items-center gap-4 md:w-[40%] lg:w-[100%] h-[4vh]  border-b-[.2vw] border-zinc-700">
                                         <a 
-                                            className='cursor-pointer text-xl md:text-xl lg:text-xl hover:text-zinc-400 transition-colors' 
+                                            className='flex-1 text-xl md:text-xl lg:text-xl hover:text-blue-600 transition-colors duration-300' 
                                             href={item.url}
                                             onClick={(e) => handleLinkClick(e, item.url)}
                                         >
                                             {item.link}
                                         </a>
                                         <span 
-                                            className="cursor-pointer text-xl md:text-xl lg:text-xl"
+                                            className="text-xl md:text-xl lg:text-xl text-zinc-600 group-hover:text-blue-600 transition-colors duration-300 pointer-events-none"
                                             onClick={(e) => handleLinkClick(e, item.url)}
                                         >
                                             <MdArrowOutward />
