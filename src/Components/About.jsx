@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {profile} from "../utils";
+import { profile } from "../utils";
 import gsap, { Elastic } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -111,7 +111,7 @@ const About = () => {
           About me
         </h1>
         <div className="w-1/3 h-1 bg-white"></div>
-      </div> 
+      </div>
       <div className="inf-cont w-full min-h-screen bg-white flex items-center justify-center py-10">
         <div className="heading w-full h-full mx-auto flex items-center flex-col gap-2 md:gap-4 lg:gap-[5.8vw] py-10 px-1 md:py-14 md:px-12 lg:p-14 lg:px-12">
           <div className="flex flex-col lg:flex-row gap-4 w-full h-auto">
@@ -193,7 +193,15 @@ const About = () => {
                     {codingskills.map((item, i) => (
                       <h1
                         key={i}
-                        className="bg-zinc-300 w-fit px-2 py-[.1vw] rounded-xl text-zinc-800 text-sm"
+                        className="coding-skill bg-zinc-300 w-fit px-2 py-[.1vw] rounded-xl text-zinc-800 text-sm cursor-pointer transition-all duration-300 hover:bg-blue-400 hover:text-white hover:scale-105 hover:shadow-lg transform"
+                        onMouseEnter={(e) => {
+                          e.target.style.transform = 'scale(1.1) rotateY(10deg)';
+                          e.target.style.boxShadow = '0 10px 25px rgba(59, 130, 246, 0.5)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.transform = 'scale(1) rotateY(0deg)';
+                          e.target.style.boxShadow = 'none';
+                        }}
                       >
                         {item}
                       </h1>
@@ -205,7 +213,7 @@ const About = () => {
               {/* Second Container */}
               <div className="rounded-3xl p-10 bg-[#232323] flex flex-col items-start gap-3 relative overflow-hidden">
                 <svg
-                className="absolute hidden md:block lg:-top-24 lg:left-2 lg:scale-105 lg:w-[50vw] lg:h-[70vh] lg:-rotate-3"
+                  className="absolute hidden md:block lg:-top-24 lg:left-2 lg:scale-105 lg:w-[50vw] lg:h-[70vh] lg:-rotate-3"
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
                   viewBox="0 0 800 400"
@@ -237,7 +245,15 @@ const About = () => {
                     {designskills.map((item, i) => (
                       <h1
                         key={i}
-                        className="bg-zinc-300 w-fit px-2 py-[.1vw] rounded-xl text-zinc-800 text-sm"
+                        className="Designs-skill bg-zinc-300 w-fit px-2 py-[.1vw] rounded-xl text-zinc-800 text-sm cursor-pointer transition-all duration-300 hover:bg-purple-400 hover:text-white hover:scale-105 hover:shadow-lg transform"
+                        onMouseEnter={(e) => {
+                          e.target.style.transform = 'scale(1.1) rotateY(10deg)';
+                          e.target.style.boxShadow = '0 10px 25px rgba(59, 130, 246, 0.5)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.transform = 'scale(1) rotateY(0deg)';
+                          e.target.style.boxShadow = 'none';
+                        }}
                       >
                         {item}
                       </h1>
