@@ -82,7 +82,7 @@ const Footer = () => {
                             <h1 className="text-xl text-zinc-600">Social</h1>
                             <div className="footer-links w-full flex items-start flex-col justify-start gap-1 pr-12">
                                 {footerLinkes.map((item, i) => (
-                                    <div key={i} className="w-[100%] flex items-center gap-4 md:w-[40%] lg:w-[100%] h-[4vh]  border-b-[.2vw] border-zinc-700">
+                                    <div key={i} className="w-[100%] flex items-center gap-4 md:w-[40%] lg:w-[100%] h-[4vh] border-b-[.2vw] border-zinc-700 group cursor-pointer">
                                         <a 
                                             className='flex-1 text-xl md:text-xl lg:text-xl hover:text-blue-600 transition-colors duration-300' 
                                             href={item.url}
